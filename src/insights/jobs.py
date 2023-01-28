@@ -20,7 +20,7 @@ def read(path: str) -> List[Dict]:
     # raise NotImplementedError
 
     with open(path) as file:
-        jobs_reader = csv.reader(file, delimiter=",", quotechar='"')
+        jobs_reader = csv.DictReader(file, delimiter=",", quotechar='"')
         jobs = list(jobs_reader)
     return jobs
 
