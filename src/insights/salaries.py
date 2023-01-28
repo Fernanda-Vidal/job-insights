@@ -87,7 +87,8 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
         max_salary = int(job["max_salary"])
         min_salary = int(job["min_salary"])
                 
-    except:
+     # Consulta em: http://turing.com.br/pydoc/2.7/tutorial/errors.html           
+    except (ValueError, TypeError, NameError):
         raise ValueError('min_salary, max_salary or salary are not valid integers')
                
     else:
@@ -96,10 +97,13 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
             raise ValueError('max_salary is smaller than min_salary')
         return max_salary >= request_salary >= min_salary
 
+    
     finally:
         print("Try checking if request salary match with the range")
         
                     
+
+
 def filter_by_salary_range(
     jobs: List[dict],
     salary: Union[str, int]
