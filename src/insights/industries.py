@@ -19,8 +19,9 @@ def get_unique_industries(path: str) -> List[str]:
     """
     # raise NotImplementedError
 
-    industries_read = csv.DictReader(path)
-    industries = []
+    with open(path) as file:
+        industries_read = csv.DictReader(file)
+        industries = []
     for item in industries_read:
         if item["industry"] not in industries:
             industries.append(item["industry"])
