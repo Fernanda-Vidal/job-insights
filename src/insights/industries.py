@@ -1,5 +1,5 @@
 from typing import List, Dict
-import csv
+from src.insights import jobs
 
 
 def get_unique_industries(path: str) -> List[str]:
@@ -19,12 +19,14 @@ def get_unique_industries(path: str) -> List[str]:
     """
     # raise NotImplementedError
 
-    with open(path) as file:
-        industries_read = csv.DictReader(file)
-        industries = []
+    industries_read = jobs.read(path)
+    industries = []
     for item in industries_read:
         if item["industry"] not in industries:
-            industries.append(item["industry"])
+            if item["industry"] == "":
+                pass
+            else:
+                industries.append(item["industry"])
         else:
             pass
 
