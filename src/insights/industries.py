@@ -1,5 +1,5 @@
 from typing import List, Dict
-from jobs import read
+import jobs
 
 
 def get_unique_industries(path: str) -> List[str]:
@@ -19,7 +19,7 @@ def get_unique_industries(path: str) -> List[str]:
     """
     # raise NotImplementedError
 
-    industries_read = read(path)
+    industries_read = jobs.read(path)
     industries = []
     for item in industries_read:
         if item["industry"] not in industries:
