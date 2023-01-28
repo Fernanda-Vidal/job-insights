@@ -1,5 +1,5 @@
 from typing import Union, List, Dict
-
+from src.insights import jobs
 
 def get_max_salary(path: str) -> int:
     """Get the maximum salary of all jobs
@@ -16,7 +16,15 @@ def get_max_salary(path: str) -> int:
     int
         The maximum salary paid out of all job opportunities
     """
-    raise NotImplementedError
+    # raise NotImplementedError
+    jobs_salary = jobs.read(path)
+    max_salary_job = []
+
+    for item in jobs_salary:
+        if item["max_salary"].isnumeric():
+            max_salary_job.append(int(item["max_salary"]))
+
+    return max(max_salary_job)
 
 
 def get_min_salary(path: str) -> int:
