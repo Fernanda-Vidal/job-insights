@@ -97,12 +97,13 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
             raise ValueError('max_salary is smaller than min_salary')
         return max_salary >= request_salary >= min_salary
 
-    # finally:
-    #     print("Try checking if request salary match with the range")
+    finally:
+        print("Try checking if request salary match with the range")
   
               
 def filter_by_salary_range(
-    jobs: List[dict], salary: Union[str, int]
+    jobs: List[dict],
+    salary: Union[str, int]
 ) -> List[Dict]:
     """Filters a list of jobs by salary range
 
@@ -124,8 +125,9 @@ def filter_by_salary_range(
     for job in jobs:
         try:
             while matches_salary_range(job, salary) is True:
-    # Consulta: https://blog.betrybe.com/python/python-while/
-    # Consulta: https://horadecodar.com.br/2021/04/23/como-obter-o-ultimo-elemento-de-uma-lista-em-python/
+                # Consulta: https://blog.betrybe.com/python/python-while/
+                # Consulta: https://horadecodar.com.br/2021/04/23/como-
+                # obter-o-ultimo-elemento-de-uma-lista-em-python/
                 if jobs[-1]:
                     filtered_salaries.append(job)
                 break
