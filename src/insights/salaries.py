@@ -101,9 +101,7 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
         print("Try checking if request salary match with the range")
   
               
-def filter_by_salary_range(
-    jobs: List[dict],
-    salary: Union[str, int]
+def filter_by_salary_range(jobs: List[dict], salary: Union[str, int]
 ) -> List[Dict]:
     """Filters a list of jobs by salary range
 
@@ -132,7 +130,7 @@ def filter_by_salary_range(
                     filtered_salaries.append(job)
                 break
             else:
-                    continue
+                continue
 
         except ValueError:
             ValueError
