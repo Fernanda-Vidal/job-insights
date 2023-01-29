@@ -87,7 +87,7 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
         max_salary = int(job["max_salary"])
         min_salary = int(job["min_salary"])
 
-    # Consulta em: http://turing.com.br/pydoc/2.7/tutorial/errors.html           
+    # Consulta em: http://turing.com.br/pydoc/2.7/tutorial/errors.html
     except (ValueError, TypeError, NameError):
         raise ValueError('some fields are not valid integers')
 
@@ -99,8 +99,8 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
 
     finally:
         print("Try checking if request salary match with the range")
-  
-              
+
+
 def filter_by_salary_range(
     jobs: List[dict],
     salary: Union[str, int]
@@ -125,12 +125,7 @@ def filter_by_salary_range(
     for job in jobs:
         try:
             if matches_salary_range(job, salary) is True:
-                # Consulta: https://blog.betrybe.com/python/python-while/
-                # Consulta: https://horadecodar.com.br/2021/04/23/como-
-                # obter-o-ultimo-elemento-de-uma-lista-em-python/
-                # if jobs[-1]:
                 filtered_salaries.append(job)
-                # break
 
         except ValueError:
             ValueError
