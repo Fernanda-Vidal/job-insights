@@ -102,7 +102,9 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
   
               
 def filter_by_salary_range(
-    jobs: List[dict], salary: Union[str, int]) -> List[Dict]:
+    jobs: List[dict],
+    salary: Union[str, int]
+    ) -> List[Dict]:
     """Filters a list of jobs by salary range
 
     Parameters
@@ -122,18 +124,15 @@ def filter_by_salary_range(
     filtered_salaries = []
     for job in jobs:
         try:
-            while matches_salary_range(job, salary) is True:
+            if matches_salary_range(job, salary) is True:
                 # Consulta: https://blog.betrybe.com/python/python-while/
                 # Consulta: https://horadecodar.com.br/2021/04/23/como-
                 # obter-o-ultimo-elemento-de-uma-lista-em-python/
-                if jobs[-1]:
+                # if jobs[-1]:
                     filtered_salaries.append(job)
-                break
+                # break
 
         except ValueError:
             ValueError
-    
-        # finally:
-        #     print("python da porra")
 
     return filtered_salaries
